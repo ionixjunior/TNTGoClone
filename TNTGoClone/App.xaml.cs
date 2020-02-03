@@ -1,4 +1,5 @@
 ﻿using System;
+using TNTGoClone.Views;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -10,7 +11,7 @@ namespace TNTGoClone
 		{
 			InitializeComponent();
 
-			MainPage = new MainPage();
+			MainPage = new MainView();
 		}
 
 		protected override void OnStart()
