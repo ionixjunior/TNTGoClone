@@ -1,5 +1,22 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Application xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:d="http://xamarin.com/schemas/2014/forms/design" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" x:Class="TNTGoClone.App">
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application
+    x:Class="TNTGoClone.App"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
     <Application.Resources>
+        <ResourceDictionary>
+            <OnPlatform
+                x:Key="FontRegular"
+                x:TypeArguments="x:String"
+                Android="Fonts/RobotoCondensed-Regular.ttf#RobotoCondensed"
+                iOS="RobotoCondensed-Regular" />
+
+            <Style TargetType="Label">
+                <Setter Property="FontFamily" Value="{StaticResource FontRegular}" />
+            </Style>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>
