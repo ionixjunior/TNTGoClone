@@ -149,5 +149,20 @@
     <BundleResource Include="Resources\Fonts\RobotoCondensed-Regular.ttf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </BundleResource>
+    <BundleResource Include="Resources\arrow_down.png" />
+    <BundleResource Include="Resources\menu_extra_selected.png" />
+    <BundleResource Include="Resources\menu_show_selected.png" />
+    <BundleResource Include="Resources\menu_movie_selected.png" />
+    <BundleResource Include="Resources\menu_live.png" />
+    <BundleResource Include="Resources\menu_extra.png" />
+    <BundleResource Include="Resources\title_logo.png" />
+    <BundleResource Include="Resources\title_search.png" />
+    <BundleResource Include="Resources\title_profile.png" />
+    <BundleResource Include="Resources\title_config.png" />
+    <BundleResource Include="Resources\menu_live_selected.png" />
+    <BundleResource Include="Resources\menu_movie.png" />
+    <BundleResource Include="Resources\menu_show.png" />
+    <BundleResource Include="Resources\content_locked.png" />
+    <BundleResource Include="Resources\live_play.png" />
   </ItemGroup>
 </Project>
