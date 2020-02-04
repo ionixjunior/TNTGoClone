@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-
+using TNTGoClone.ViewModels;
 using Xamarin.Forms;
 
 namespace TNTGoClone.Views
@@ -10,6 +10,7 @@ namespace TNTGoClone.Views
 		public MainView()
 		{
 			InitializeComponent();
+			BindingContext = new MainViewModel();
 		}
 	}
 }
