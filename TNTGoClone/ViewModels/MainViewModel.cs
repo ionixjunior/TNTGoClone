@@ -29,10 +29,10 @@ namespace TNTGoClone.ViewModels
         {
             return new List<AppPage>
             {
-                new AppPage { Name = "LIVE" },
-                new AppPage { Name = "MOVIES" },
-                new AppPage { Name = "SHOWS" },
-                new AppPage { Name = "EXTRAS" }
+                new AppPage { Name = "LIVE", Icon = "menu_live", Type = AppPageType.Live },
+                new AppPage { Name = "MOVIES", Icon = "menu_movie", Type = AppPageType.Movie },
+                new AppPage { Name = "SHOWS", Icon = "menu_show", Type = AppPageType.Show },
+                new AppPage { Name = "EXTRAS", Icon = "menu_extra", Type = AppPageType.Extra }
             };
         }
 
