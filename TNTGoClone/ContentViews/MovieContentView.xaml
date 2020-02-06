@@ -3,8 +3,42 @@
     x:Class="TNTGoClone.ContentViews.MovieContentView"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms">
+    xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+    xmlns:view="clr-namespace:TNTGoClone.Views">
     <ContentView.Content>
-        <Label FontSize="20" Text="Movie content view" />
+        <CollectionView Margin="0,100,0,0" ItemsSource="{Binding Source={x:Static view:MainView.Instance}, Path=BindingContext.Movies}">
+            <CollectionView.ItemsLayout>
+                <GridItemsLayout
+                    HorizontalItemSpacing="20"
+                    Orientation="Vertical"
+                    Span="{OnIdiom Phone=2,
+                                   Tablet=3}"
+                    VerticalItemSpacing="40" />
+            </CollectionView.ItemsLayout>
+
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <StackLayout>
+                        <Grid HeightRequest="{OnIdiom Phone=300, Tablet=500}" HorizontalOptions="Center">
+                            <ffimageloading:CachedImage HeightRequest="{OnIdiom Phone=300, Tablet=500}" Source="{Binding Poster}" />
+
+                            <ffimageloading:CachedImage
+                                HeightRequest="60"
+                                HorizontalOptions="Start"
+                                Source="content_locked"
+                                VerticalOptions="Start" />
+
+                            <ffimageloading:CachedImage
+                                Margin="0,10,10,0"
+                                HorizontalOptions="End"
+                                Source="{Binding Channel}"
+                                VerticalOptions="Start" />
+                        </Grid>
+
+                        <Label HorizontalTextAlignment="Center" Text="{Binding Title}" />
+                    </StackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
     </ContentView.Content>
 </ContentView>

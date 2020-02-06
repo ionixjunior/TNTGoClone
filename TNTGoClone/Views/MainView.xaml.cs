@@ -10,11 +10,13 @@ namespace TNTGoClone.Views
 	{
 		private readonly MainViewModel _viewModel;
         private bool _alreadyLoaded = false;
+        public static MainView Instance { get; private set; }
 
 		public MainView()
 		{
 			InitializeComponent();
 			BindingContext = _viewModel = new MainViewModel();
+            Instance = this;
 		}
 
         protected override async void OnAppearing()

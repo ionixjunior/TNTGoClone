@@ -3,14 +3,31 @@
     x:Class="TNTGoClone.Views.MainView"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms">
+    xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+    xmlns:templates="clr-namespace:TNTGoClone.Templates"
+    BackgroundColor="#282828">
     <ContentPage.Content>
-        <StackLayout>
-            <!--  Place new controls here  -->
-            <Label
-                HorizontalOptions="Center"
-                Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" />
-        </StackLayout>
+        <AbsoluteLayout>
+            <CarouselView
+                AbsoluteLayout.LayoutBounds="0,0,1,1"
+                AbsoluteLayout.LayoutFlags="All"
+                ItemTemplate="{templates:AppPageDataTemplateSelector}"
+                ItemsSource="{Binding Pages}" />
+
+            <StackLayout
+                AbsoluteLayout.LayoutBounds="0,0,1,100"
+                AbsoluteLayout.LayoutFlags="WidthProportional"
+                BackgroundColor="Black">
+                <Label Text="Cabeçalho" />
+            </StackLayout>
+
+
+            <StackLayout
+                AbsoluteLayout.LayoutBounds="0,1,1,100"
+                AbsoluteLayout.LayoutFlags="YProportional,WidthProportional"
+                BackgroundColor="Black">
+                <Label Text="Rodapé" />
+            </StackLayout>
+        </AbsoluteLayout>
     </ContentPage.Content>
 </ContentPage>

@@ -16,6 +16,11 @@
 
             <Style TargetType="Label">
                 <Setter Property="FontFamily" Value="{StaticResource FontRegular}" />
+                <Setter Property="TextColor" Value="White" />
+            </Style>
+
+            <Style ApplyToDerivedTypes="True" TargetType="ContentPage">
+                <Setter Property="BackgroundColor" Value="#282828" />
             </Style>
         </ResourceDictionary>
     </Application.Resources>
