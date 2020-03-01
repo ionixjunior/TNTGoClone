@@ -14,7 +14,6 @@ namespace TNTGoClone.ViewModels
         private LiveViewModel _liveViewModel;
 
         public IList<AppPage> Pages { get; private set; }
-        public ObservableRangeCollection<Live> Lives { get; private set; }
         public ObservableRangeCollection<Movie> Movies { get; private set; }
 
         public MainViewModel()
@@ -23,7 +22,6 @@ namespace TNTGoClone.ViewModels
             _liveViewModel = new LiveViewModel(_api);
 
             Pages = GetPages();
-            Lives = new ObservableRangeCollection<Live>();
             Movies = new ObservableRangeCollection<Movie>();
         }
 
@@ -61,21 +59,7 @@ namespace TNTGoClone.ViewModels
 
         public async Task InitializeAsync()
         {
-            await LoadLives();
             await GetMovies();
-        }
-
-        private async Task LoadLives()
-        {
-            try
-            {
-                var lives = await _api.GetLives();
-                Lives.AddRange(lives);
-            }
-            catch (Exception exception)
-            {
-                System.Diagnostics.Debug.WriteLine(exception.Message);
-            }
         }
 
         private async Task GetMovies()
