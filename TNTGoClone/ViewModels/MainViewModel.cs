@@ -12,6 +12,7 @@ namespace TNTGoClone.ViewModels
         private LiveViewModel _liveViewModel;
         private MovieViewModel _movieViewModel;
         private ShowViewModel _showViewModel;
+        private ExtraViewModel _extraViewModel;
 
         public IList<AppPage> Pages { get; private set; }
 
@@ -21,6 +22,7 @@ namespace TNTGoClone.ViewModels
             _liveViewModel = new LiveViewModel(_api);
             _movieViewModel = new MovieViewModel(_api);
             _showViewModel = new ShowViewModel(_api);
+            _extraViewModel = new ExtraViewModel(_api);
 
             Pages = GetPages();
         }
@@ -54,7 +56,8 @@ namespace TNTGoClone.ViewModels
                 {
                     Name = "EXTRAS",
                     Icon = "menu_extra",
-                    Type = AppPageType.Extra
+                    Type = AppPageType.Extra,
+                    ViewModel = _extraViewModel
                 }
             };
         }
