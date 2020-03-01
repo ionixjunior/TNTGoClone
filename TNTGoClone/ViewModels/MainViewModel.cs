@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using MvvmHelpers;
 using TNTGoClone.Interfaces;
 using TNTGoClone.Models;
@@ -15,7 +13,6 @@ namespace TNTGoClone.ViewModels
         private MovieViewModel _movieViewModel;
 
         public IList<AppPage> Pages { get; private set; }
-        public ObservableRangeCollection<Movie> Movies { get; private set; }
 
         public MainViewModel()
         {
@@ -24,7 +21,6 @@ namespace TNTGoClone.ViewModels
             _movieViewModel = new MovieViewModel(_api);
 
             Pages = GetPages();
-            Movies = new ObservableRangeCollection<Movie>();
         }
 
         private IList<AppPage> GetPages()
@@ -58,24 +54,6 @@ namespace TNTGoClone.ViewModels
                     Type = AppPageType.Extra
                 }
             };
-        }
-
-        public async Task InitializeAsync()
-        {
-            await GetMovies();
-        }
-
-        private async Task GetMovies()
-        {
-            try
-            {
-                var movies = await _api.GetMovies();
-                Movies.AddRange(movies);
-            }
-            catch (Exception exception)
-            {
-                System.Diagnostics.Debug.WriteLine(exception.Message);
-            }
         }
     }
 }
