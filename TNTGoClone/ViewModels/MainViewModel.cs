@@ -11,6 +11,7 @@ namespace TNTGoClone.ViewModels
         private readonly IApi _api;
         private LiveViewModel _liveViewModel;
         private MovieViewModel _movieViewModel;
+        private ShowViewModel _showViewModel;
 
         public IList<AppPage> Pages { get; private set; }
 
@@ -19,6 +20,7 @@ namespace TNTGoClone.ViewModels
             _api = ApiService.Instance;
             _liveViewModel = new LiveViewModel(_api);
             _movieViewModel = new MovieViewModel(_api);
+            _showViewModel = new ShowViewModel(_api);
 
             Pages = GetPages();
         }
@@ -45,7 +47,8 @@ namespace TNTGoClone.ViewModels
                 {
                     Name = "SHOWS",
                     Icon = "menu_show",
-                    Type = AppPageType.Show
+                    Type = AppPageType.Show,
+                    ViewModel = _showViewModel
                 },
                 new AppPage
                 {
