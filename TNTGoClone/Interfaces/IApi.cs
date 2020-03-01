@@ -15,5 +15,8 @@ namespace TNTGoClone.Interfaces
 
 		[Get("/show")]
 		Task<IList<Show>> GetShows();
+
+		[Get("/extra")]
+		Task<IList<Extra>> GetExtras();
 	}
 }
