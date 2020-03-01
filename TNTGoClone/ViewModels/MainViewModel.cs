@@ -11,6 +11,7 @@ namespace TNTGoClone.ViewModels
     public class MainViewModel : BaseViewModel
     {
         private readonly IApi _api;
+        private LiveViewModel _liveViewModel;
 
         public IList<AppPage> Pages { get; private set; }
         public ObservableRangeCollection<Live> Lives { get; private set; }
@@ -19,6 +20,7 @@ namespace TNTGoClone.ViewModels
         public MainViewModel()
         {
             _api = ApiService.Instance;
+            _liveViewModel = new LiveViewModel(_api);
 
             Pages = GetPages();
             Lives = new ObservableRangeCollection<Live>();
@@ -29,10 +31,31 @@ namespace TNTGoClone.ViewModels
         {
             return new List<AppPage>
             {
-                new AppPage { Name = "LIVE", Icon = "menu_live", Type = AppPageType.Live },
-                new AppPage { Name = "MOVIES", Icon = "menu_movie", Type = AppPageType.Movie },
-                new AppPage { Name = "SHOWS", Icon = "menu_show", Type = AppPageType.Show },
-                new AppPage { Name = "EXTRAS", Icon = "menu_extra", Type = AppPageType.Extra }
+                new AppPage
+                {
+                    Name = "LIVE",
+                    Icon = "menu_live",
+                    Type = AppPageType.Live,
+                    ViewModel = _liveViewModel
+                },
+                new AppPage
+                {
+                    Name = "MOVIES",
+                    Icon = "menu_movie",
+                    Type = AppPageType.Movie
+                },
+                new AppPage
+                {
+                    Name = "SHOWS",
+                    Icon = "menu_show",
+                    Type = AppPageType.Show
+                },
+                new AppPage
+                {
+                    Name = "EXTRAS",
+                    Icon = "menu_extra",
+                    Type = AppPageType.Extra
+                }
             };
         }
 
