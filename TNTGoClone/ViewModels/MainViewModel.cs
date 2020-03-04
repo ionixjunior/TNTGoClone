@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using MvvmHelpers;
 using TNTGoClone.Interfaces;
 using TNTGoClone.Models;
@@ -11,61 +9,57 @@ namespace TNTGoClone.ViewModels
     public class MainViewModel : BaseViewModel
     {
         private readonly IApi _api;
+        private LiveViewModel _liveViewModel;
+        private MovieViewModel _movieViewModel;
+        private ShowViewModel _showViewModel;
+        private ExtraViewModel _extraViewModel;
 
         public IList<AppPage> Pages { get; private set; }
-        public ObservableRangeCollection<Live> Lives { get; private set; }
-        public ObservableRangeCollection<Movie> Movies { get; private set; }
 
         public MainViewModel()
         {
             _api = ApiService.Instance;
+            _liveViewModel = new LiveViewModel(_api);
+            _movieViewModel = new MovieViewModel(_api);
+            _showViewModel = new ShowViewModel(_api);
+            _extraViewModel = new ExtraViewModel(_api);
 
             Pages = GetPages();
-            Lives = new ObservableRangeCollection<Live>();
-            Movies = new ObservableRangeCollection<Movie>();
         }
 
         private IList<AppPage> GetPages()
         {
             return new List<AppPage>
             {
-                new AppPage { Name = "LIVE", Icon = "menu_live", Type = AppPageType.Live },
-                new AppPage { Name = "MOVIES", Icon = "menu_movie", Type = AppPageType.Movie },
-                new AppPage { Name = "SHOWS", Icon = "menu_show", Type = AppPageType.Show },
-                new AppPage { Name = "EXTRAS", Icon = "menu_extra", Type = AppPageType.Extra }
+                new AppPage
+                {
+                    Name = "LIVE",
+                    Icon = "menu_live",
+                    Type = AppPageType.Live,
+                    ViewModel = _liveViewModel
+                },
+                new AppPage
+                {
+                    Name = "MOVIES",
+                    Icon = "menu_movie",
+                    Type = AppPageType.Movie,
+                    ViewModel = _movieViewModel
+                },
+                new AppPage
+                {
+                    Name = "SHOWS",
+                    Icon = "menu_show",
+                    Type = AppPageType.Show,
+                    ViewModel = _showViewModel
+                },
+                new AppPage
+                {
+                    Name = "EXTRAS",
+                    Icon = "menu_extra",
+                    Type = AppPageType.Extra,
+                    ViewModel = _extraViewModel
+                }
             };
-        }
-
-        public async Task InitializeAsync()
-        {
-            await LoadLives();
-            await GetMovies();
-        }
-
-        private async Task LoadLives()
-        {
-            try
-            {
-                var lives = await _api.GetLives();
-                Lives.AddRange(lives);
-            }
-            catch (Exception exception)
-            {
-                System.Diagnostics.Debug.WriteLine(exception.Message);
-            }
-        }
-
-        private async Task GetMovies()
-        {
-            try
-            {
-                var movies = await _api.GetMovies();
-                Movies.AddRange(movies);
-            }
-            catch (Exception exception)
-            {
-                System.Diagnostics.Debug.WriteLine(exception.Message);
-            }
         }
     }
 }

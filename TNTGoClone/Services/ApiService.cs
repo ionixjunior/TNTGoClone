@@ -27,5 +27,15 @@ namespace TNTGoClone.Services
 		{
 			return await _api.GetMovies();
 		}
-	}
+
+        public async Task<IList<Show>> GetShows()
+        {
+			return await _api.GetShows();
+        }
+
+        public async Task<IList<Extra>> GetExtras()
+        {
+			return await _api.GetExtras();
+        }
+    }
 }

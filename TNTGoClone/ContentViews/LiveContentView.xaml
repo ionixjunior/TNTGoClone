@@ -3,13 +3,11 @@
     x:Class="TNTGoClone.ContentViews.LiveContentView"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
-    xmlns:view="clr-namespace:TNTGoClone.Views">
+    xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms">
     <ContentView.Content>
-
         <FlexLayout
             Padding="20,120"
-            BindableLayout.ItemsSource="{Binding Source={x:Static view:MainView.Instance}, Path=BindingContext.Lives}"
+            BindableLayout.ItemsSource="{Binding ViewModel.Lives}"
             Direction="{OnIdiom Phone=Column,
                                 Tablet=Row}"
             VerticalOptions="FillAndExpand">

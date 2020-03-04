@@ -1,6 +1,6 @@
 ﻿namespace TNTGoClone.Models
 {
-    public class Movie : Video
+    public class Extra : Video
     {
     }
 }
