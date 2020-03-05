@@ -5,50 +5,57 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms">
     <ContentView.Content>
-        <FlexLayout
-            Padding="20,120"
-            BindableLayout.ItemsSource="{Binding ViewModel.Lives}"
-            Direction="{OnIdiom Phone=Column,
-                                Tablet=Row}"
-            VerticalOptions="FillAndExpand">
-            <BindableLayout.ItemTemplate>
-                <DataTemplate>
-                    <Frame
-                        Margin="10"
-                        Padding="0"
-                        FlexLayout.Grow="1"
-                        HasShadow="True">
-                        <Grid>
-                            <ffimageloading:CachedImage Aspect="AspectFill" Source="{Binding Background}" />
+        <StackLayout Margin="{OnIdiom Phone='0,100,0,0', Tablet='0'}">
+            <BoxView
+                BackgroundColor="Black"
+                HeightRequest="100"
+                IsVisible="{OnIdiom Phone=false,
+                                    Tablet=true}" />
+            <FlexLayout
+                Padding="20,20"
+                BindableLayout.ItemsSource="{Binding ViewModel.Lives}"
+                Direction="{OnIdiom Phone=Column,
+                                    Tablet=Row}"
+                VerticalOptions="FillAndExpand">
+                <BindableLayout.ItemTemplate>
+                    <DataTemplate>
+                        <Frame
+                            Margin="10"
+                            Padding="0"
+                            FlexLayout.Grow="1"
+                            HasShadow="True">
+                            <Grid>
+                                <ffimageloading:CachedImage Aspect="AspectFill" Source="{Binding Background}" />
 
-                            <BoxView BackgroundColor="Black" Opacity="0.7" />
+                                <BoxView BackgroundColor="Black" Opacity="0.7" />
 
-                            <ffimageloading:CachedImage
-                                HorizontalOptions="Start"
-                                Source="content_locked"
-                                VerticalOptions="Start" />
+                                <ffimageloading:CachedImage
+                                    HorizontalOptions="Start"
+                                    Source="content_locked"
+                                    VerticalOptions="Start" />
 
-                            <StackLayout
-                                Padding="8"
-                                BackgroundColor="#282828"
-                                HorizontalOptions="Center"
-                                VerticalOptions="Start">
-                                <Label Text="LIVE" />
-                            </StackLayout>
+                                <StackLayout
+                                    Padding="8"
+                                    BackgroundColor="#282828"
+                                    HorizontalOptions="Center"
+                                    VerticalOptions="Start">
+                                    <Label Text="LIVE" />
+                                </StackLayout>
 
-                            <FlexLayout
-                                Margin="40,70"
-                                AlignItems="Center"
-                                Direction="{OnIdiom Phone=Row,
-                                                    Tablet=Column}"
-                                JustifyContent="SpaceBetween">
-                                <ffimageloading:CachedImage Source="{Binding Logo}" />
-                                <ffimageloading:CachedImage HeightRequest="80" Source="live_play" />
-                            </FlexLayout>
-                        </Grid>
-                    </Frame>
-                </DataTemplate>
-            </BindableLayout.ItemTemplate>
-        </FlexLayout>
+                                <FlexLayout
+                                    Margin="40,70"
+                                    AlignItems="Center"
+                                    Direction="{OnIdiom Phone=Row,
+                                                        Tablet=Column}"
+                                    JustifyContent="SpaceBetween">
+                                    <ffimageloading:CachedImage Source="{Binding Logo}" />
+                                    <ffimageloading:CachedImage HeightRequest="80" Source="live_play" />
+                                </FlexLayout>
+                            </Grid>
+                        </Frame>
+                    </DataTemplate>
+                </BindableLayout.ItemTemplate>
+            </FlexLayout>
+        </StackLayout>
     </ContentView.Content>
 </ContentView>

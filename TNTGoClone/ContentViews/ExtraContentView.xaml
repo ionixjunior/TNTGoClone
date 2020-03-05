@@ -5,9 +5,69 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms">
     <ContentView.Content>
-        <Label
-            Margin="0,100,0,0"
-            FontSize="20"
-            Text="Extra content view" />
+        <StackLayout Margin="{OnIdiom Phone='0,100,0,0', Tablet='0'}">
+            <FlexLayout
+                AlignItems="Center"
+                BackgroundColor="Black"
+                HeightRequest="{OnIdiom Phone=50,
+                                        Tablet=100}"
+                JustifyContent="Center">
+                <Label Text="ALL GENRES" />
+                <Image
+                    Margin="5,0,0,0"
+                    HeightRequest="10"
+                    Source="arrow_down" />
+
+                <Label Margin="15,0,0,0" Text="NEWEST FIRST" />
+                <Image
+                    Margin="5,0,0,0"
+                    HeightRequest="10"
+                    Source="arrow_down" />
+            </FlexLayout>
+            <CollectionView ItemsSource="{Binding ViewModel.Extras}">
+                <CollectionView.EmptyView>
+                    <Label
+                        Padding="0,0,0,100"
+                        FontSize="Title"
+                        HorizontalTextAlignment="Center"
+                        Text="SORRY, NO CONTENT CURRENTLY AVAILABLE"
+                        TextColor="#7B7B7C"
+                        VerticalTextAlignment="Center" />
+                </CollectionView.EmptyView>
+
+                <CollectionView.ItemsLayout>
+                    <GridItemsLayout
+                        HorizontalItemSpacing="20"
+                        Orientation="Vertical"
+                        Span="{OnIdiom Phone=2,
+                                       Tablet=3}"
+                        VerticalItemSpacing="40" />
+                </CollectionView.ItemsLayout>
+
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout>
+                            <Grid HeightRequest="{OnIdiom Phone=300, Tablet=500}" HorizontalOptions="Center">
+                                <ffimageloading:CachedImage HeightRequest="{OnIdiom Phone=300, Tablet=500}" Source="{Binding Poster}" />
+
+                                <ffimageloading:CachedImage
+                                    HeightRequest="60"
+                                    HorizontalOptions="Start"
+                                    Source="content_locked"
+                                    VerticalOptions="Start" />
+
+                                <ffimageloading:CachedImage
+                                    Margin="0,10,10,0"
+                                    HorizontalOptions="End"
+                                    Source="{Binding Channel}"
+                                    VerticalOptions="Start" />
+                            </Grid>
+
+                            <Label HorizontalTextAlignment="Center" Text="{Binding Title}" />
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
     </ContentView.Content>
 </ContentView>

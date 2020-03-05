@@ -164,5 +164,6 @@
     <BundleResource Include="Resources\menu_show.png" />
     <BundleResource Include="Resources\content_locked.png" />
     <BundleResource Include="Resources\live_play.png" />
+    <BundleResource Include="Resources\gradient.png" />
   </ItemGroup>
 </Project>

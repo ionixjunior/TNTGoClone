@@ -6,28 +6,131 @@
     xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
     xmlns:templates="clr-namespace:TNTGoClone.Templates"
     BackgroundColor="#282828">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="TitleImage" TargetType="Image">
+                <Setter Property="HeightRequest" Value="28" />
+                <Setter Property="Margin" Value="10,0" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
     <ContentPage.Content>
         <AbsoluteLayout>
             <CarouselView
+                x:Name="CarouselView"
                 AbsoluteLayout.LayoutBounds="0,0,1,1"
                 AbsoluteLayout.LayoutFlags="All"
+                CurrentItemChanged="CarouselView_CurrentItemChanged"
                 ItemTemplate="{templates:AppPageDataTemplateSelector}"
                 ItemsSource="{Binding Pages}" />
 
-            <StackLayout
-                AbsoluteLayout.LayoutBounds="0,0,1,100"
-                AbsoluteLayout.LayoutFlags="WidthProportional"
-                BackgroundColor="Black">
-                <Label Text="Cabeçalho" />
-            </StackLayout>
+            <OnIdiom x:TypeArguments="View">
+                <OnIdiom.Phone>
+                    <FlexLayout
+                        Padding="0,24,0,0"
+                        AbsoluteLayout.LayoutBounds="0,0,1,100"
+                        AbsoluteLayout.LayoutFlags="WidthProportional"
+                        BackgroundColor="Black">
+
+                        <FlexLayout AlignItems="Center" FlexLayout.Grow="1">
+                            <Image Source="title_profile" Style="{StaticResource TitleImage}" />
+                            <Image Source="title_config" Style="{StaticResource TitleImage}" />
+                        </FlexLayout>
+
+                        <FlexLayout AlignItems="Center" FlexLayout.Grow="1">
+                            <Image Source="title_logo" Style="{StaticResource TitleImage}" />
+                        </FlexLayout>
+
+                        <FlexLayout
+                            AlignItems="Center"
+                            FlexLayout.Grow="1"
+                            JustifyContent="End">
+                            <Image Source="title_search" Style="{StaticResource TitleImage}" />
+                        </FlexLayout>
+                    </FlexLayout>
+                </OnIdiom.Phone>
+
+                <OnIdiom.Tablet>
+                    <Grid AbsoluteLayout.LayoutBounds="0,0,1,100" AbsoluteLayout.LayoutFlags="WidthProportional">
+                        <Image Aspect="AspectFill" Source="gradient" />
+
+                        <FlexLayout Padding="20,24,20,0" BackgroundColor="Transparent">
+                            <FlexLayout AlignItems="Center" FlexLayout.Grow="1">
+                                <Image Source="title_logo" Style="{StaticResource TitleImage}" />
+                            </FlexLayout>
+
+                            <FlexLayout
+                                AlignItems="Center"
+                                FlexLayout.Grow="1"
+                                JustifyContent="End">
+                                <Image Source="title_search" Style="{StaticResource TitleImage}" />
+                                <Image Source="title_config" Style="{StaticResource TitleImage}" />
+                                <Image Source="title_profile" Style="{StaticResource TitleImage}" />
+                            </FlexLayout>
+                        </FlexLayout>
+                    </Grid>
+                </OnIdiom.Tablet>
+            </OnIdiom>
 
 
-            <StackLayout
+            <FlexLayout
+                x:Name="Footer"
                 AbsoluteLayout.LayoutBounds="0,1,1,100"
                 AbsoluteLayout.LayoutFlags="YProportional,WidthProportional"
-                BackgroundColor="Black">
-                <Label Text="Rodapé" />
-            </StackLayout>
+                AlignItems="Center"
+                BackgroundColor="Black"
+                BindableLayout.ItemsSource="{Binding Pages}"
+                JustifyContent="Center">
+
+                <BindableLayout.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout Padding="24,0">
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
+                            </StackLayout.GestureRecognizers>
+
+                            <Image HeightRequest="24" Source="{Binding Icon}">
+                                <VisualStateManager.VisualStateGroups>
+                                    <VisualStateGroup>
+                                        <VisualState x:Name="UnSelected">
+                                            <VisualState.Setters>
+                                                <Setter Property="Source" Value="{Binding Icon}" />
+                                            </VisualState.Setters>
+                                        </VisualState>
+
+                                        <VisualState x:Name="Selected">
+                                            <VisualState.Setters>
+                                                <Setter Property="Source" Value="{Binding Icon, StringFormat='{0}_selected'}" />
+                                            </VisualState.Setters>
+                                        </VisualState>
+                                    </VisualStateGroup>
+                                </VisualStateManager.VisualStateGroups>
+                            </Image>
+
+                            <Label HorizontalTextAlignment="Center" Text="{Binding Name}">
+                                <VisualStateManager.VisualStateGroups>
+                                    <VisualStateGroup>
+                                        <VisualState x:Name="UnSelected">
+                                            <VisualState.Setters>
+                                                <Setter Property="TextColor" Value="#CFCFCF" />
+                                            </VisualState.Setters>
+                                        </VisualState>
+
+                                        <VisualState x:Name="Selected">
+                                            <VisualState.Setters>
+                                                <Setter Property="TextColor" Value="#F26C5C" />
+                                            </VisualState.Setters>
+                                        </VisualState>
+                                    </VisualStateGroup>
+                                </VisualStateManager.VisualStateGroups>
+                            </Label>
+                        </StackLayout>
+                    </DataTemplate>
+                </BindableLayout.ItemTemplate>
+
+            </FlexLayout>
         </AbsoluteLayout>
     </ContentPage.Content>
 </ContentPage>
