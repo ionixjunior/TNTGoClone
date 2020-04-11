@@ -5,7 +5,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms">
     <ContentView.Content>
-        <StackLayout Margin="{OnIdiom Phone='0,100,0,0', Tablet='0'}">
+        <StackLayout Margin="{OnIdiom Phone='0,100,0,100', Tablet='0'}">
             <BoxView
                 BackgroundColor="Black"
                 HeightRequest="100"
@@ -43,7 +43,7 @@
                                 </StackLayout>
 
                                 <FlexLayout
-                                    Margin="40,70"
+                                    Margin="40,60"
                                     AlignItems="Center"
                                     Direction="{OnIdiom Phone=Row,
                                                         Tablet=Column}"
