@@ -62,7 +62,7 @@
       <Version>2.4.11.982</Version>
     </PackageReference>
     <PackageReference Include="refit">
-      <Version>5.0.23</Version>
+      <Version>7.2.22</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
