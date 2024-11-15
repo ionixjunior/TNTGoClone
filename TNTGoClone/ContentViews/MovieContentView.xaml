@@ -5,7 +5,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
     <ContentView.Content>
         <ScrollView>
-            <VerticalStackLayout Margin="{OnIdiom Phone='0,100,0,0', Tablet='0'}">
+            <VerticalStackLayout>
                 <FlexLayout
                     AlignItems="Center"
                     BackgroundColor="Black"

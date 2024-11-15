@@ -19,6 +19,7 @@
         <AbsoluteLayout>
             <CarouselView
                 x:Name="CarouselView"
+                Margin="0,100,0,100"
                 AbsoluteLayout.LayoutBounds="0,0,1,1"
                 AbsoluteLayout.LayoutFlags="All"
                 CurrentItemChanged="CarouselView_CurrentItemChanged"
