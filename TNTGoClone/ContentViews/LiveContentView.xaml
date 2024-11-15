@@ -47,7 +47,7 @@
                                     Direction="{OnIdiom Phone=Row,
                                                         Tablet=Column}"
                                     JustifyContent="SpaceBetween">
-                                    <Image Source="{Binding Logo}" />
+                                    <Image Source="{Binding Logo}" WidthRequest="80" />
                                     <Image HeightRequest="80" Source="live_play" />
                                 </FlexLayout>
                             </Grid>
