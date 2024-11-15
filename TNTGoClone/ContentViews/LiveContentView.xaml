@@ -4,57 +4,59 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
     <ContentView.Content>
-        <VerticalStackLayout Margin="{OnIdiom Phone='0,100,0,100', Tablet='0'}">
-            <BoxView
-                BackgroundColor="Black"
-                HeightRequest="100"
-                IsVisible="{OnIdiom Phone=false,
-                                    Tablet=true}" />
-            <FlexLayout
-                Padding="20,20"
-                BindableLayout.ItemsSource="{Binding ViewModel.Lives}"
-                Direction="{OnIdiom Phone=Column,
-                                    Tablet=Row}"
-                VerticalOptions="FillAndExpand">
-                <BindableLayout.ItemTemplate>
-                    <DataTemplate>
-                        <Frame
-                            Margin="10"
-                            Padding="0"
-                            FlexLayout.Grow="1"
-                            HasShadow="True">
-                            <Grid>
-                                <Image Aspect="AspectFill" Source="{Binding Background}" />
+        <ScrollView>
+            <VerticalStackLayout Margin="{OnIdiom Phone='0,100,0,100', Tablet='0'}">
+                <BoxView
+                    BackgroundColor="Black"
+                    HeightRequest="100"
+                    IsVisible="{OnIdiom Phone=false,
+                                        Tablet=true}" />
+                <FlexLayout
+                    Padding="20,20"
+                    BindableLayout.ItemsSource="{Binding ViewModel.Lives}"
+                    Direction="{OnIdiom Phone=Column,
+                                        Tablet=Row}"
+                    VerticalOptions="FillAndExpand">
+                    <BindableLayout.ItemTemplate>
+                        <DataTemplate>
+                            <Frame
+                                Margin="10"
+                                Padding="0"
+                                FlexLayout.Grow="1"
+                                HasShadow="True">
+                                <Grid>
+                                    <Image Aspect="AspectFill" Source="{Binding Background}" />
 
-                                <BoxView BackgroundColor="Black" Opacity="0.7" />
+                                    <BoxView BackgroundColor="Black" Opacity="0.7" />
 
-                                <Image
-                                    HorizontalOptions="Start"
-                                    Source="content_locked"
-                                    VerticalOptions="Start" />
+                                    <Image
+                                        HorizontalOptions="Start"
+                                        Source="content_locked"
+                                        VerticalOptions="Start" />
 
-                                <VerticalStackLayout
-                                    Padding="8"
-                                    BackgroundColor="#282828"
-                                    HorizontalOptions="Center"
-                                    VerticalOptions="Start">
-                                    <Label Text="LIVE" />
-                                </VerticalStackLayout>
+                                    <VerticalStackLayout
+                                        Padding="8"
+                                        BackgroundColor="#282828"
+                                        HorizontalOptions="Center"
+                                        VerticalOptions="Start">
+                                        <Label Text="LIVE" />
+                                    </VerticalStackLayout>
 
-                                <FlexLayout
-                                    Margin="40,60"
-                                    AlignItems="Center"
-                                    Direction="{OnIdiom Phone=Row,
-                                                        Tablet=Column}"
-                                    JustifyContent="SpaceBetween">
-                                    <Image Source="{Binding Logo}" WidthRequest="80" />
-                                    <Image HeightRequest="80" Source="live_play" />
-                                </FlexLayout>
-                            </Grid>
-                        </Frame>
-                    </DataTemplate>
-                </BindableLayout.ItemTemplate>
-            </FlexLayout>
-        </VerticalStackLayout>
+                                    <FlexLayout
+                                        Margin="40,60"
+                                        AlignItems="Center"
+                                        Direction="{OnIdiom Phone=Row,
+                                                            Tablet=Column}"
+                                        JustifyContent="SpaceBetween">
+                                        <Image Source="{Binding Logo}" WidthRequest="80" />
+                                        <Image HeightRequest="80" Source="live_play" />
+                                    </FlexLayout>
+                                </Grid>
+                            </Frame>
+                        </DataTemplate>
+                    </BindableLayout.ItemTemplate>
+                </FlexLayout>
+            </VerticalStackLayout>
+        </ScrollView>
     </ContentView.Content>
 </ContentView>
