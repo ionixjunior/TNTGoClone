@@ -5,7 +5,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TNTGoClone.Android", "TNTGo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TNTGoClone.iOS", "TNTGoClone.iOS\TNTGoClone.iOS.csproj", "{9D56AE9C-D85C-40CB-8392-1E5C1D260734}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TNTGoClone", "TNTGoClone\TNTGoClone.csproj", "{46490BB8-6C95-4FCD-8D21-016481BCD333}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TNTGoClone", "TNTGoClone\TNTGoClone.csproj", "{46490BB8-6C95-4FCD-8D21-016481BCD333}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
