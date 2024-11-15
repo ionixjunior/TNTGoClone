@@ -85,10 +85,10 @@
 
                 <BindableLayout.ItemTemplate>
                     <DataTemplate>
-                        <StackLayout Padding="24,0">
-                            <StackLayout.GestureRecognizers>
+                        <VerticalStackLayout Padding="24,0">
+                            <VerticalStackLayout.GestureRecognizers>
                                 <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
-                            </StackLayout.GestureRecognizers>
+                            </VerticalStackLayout.GestureRecognizers>
 
                             <Image HeightRequest="24" Source="{Binding Icon}">
                                 <VisualStateManager.VisualStateGroups>
@@ -125,7 +125,7 @@
                                     </VisualStateGroup>
                                 </VisualStateManager.VisualStateGroups>
                             </Label>
-                        </StackLayout>
+                        </VerticalStackLayout>
                     </DataTemplate>
                 </BindableLayout.ItemTemplate>
 

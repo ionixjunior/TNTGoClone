@@ -4,7 +4,7 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
     <ContentView.Content>
-        <StackLayout Margin="{OnIdiom Phone='0,100,0,0', Tablet='0'}">
+        <VerticalStackLayout Margin="{OnIdiom Phone='0,100,0,0', Tablet='0'}">
             <FlexLayout
                 AlignItems="Center"
                 BackgroundColor="Black"
@@ -36,7 +36,7 @@
 
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <StackLayout>
+                        <VerticalStackLayout>
                             <Grid HeightRequest="{OnIdiom Phone=300, Tablet=500}" HorizontalOptions="Center">
                                 <Image HeightRequest="{OnIdiom Phone=300, Tablet=500}" Source="{Binding Poster}" />
 
@@ -54,10 +54,10 @@
                             </Grid>
 
                             <Label HorizontalTextAlignment="Center" Text="{Binding Title}" />
-                        </StackLayout>
+                        </VerticalStackLayout>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
-        </StackLayout>
+        </VerticalStackLayout>
     </ContentView.Content>
 </ContentView>

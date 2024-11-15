@@ -4,7 +4,7 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
     <ContentView.Content>
-        <StackLayout Margin="{OnIdiom Phone='0,100,0,100', Tablet='0'}">
+        <VerticalStackLayout Margin="{OnIdiom Phone='0,100,0,100', Tablet='0'}">
             <BoxView
                 BackgroundColor="Black"
                 HeightRequest="100"
@@ -33,13 +33,13 @@
                                     Source="content_locked"
                                     VerticalOptions="Start" />
 
-                                <StackLayout
+                                <VerticalStackLayout
                                     Padding="8"
                                     BackgroundColor="#282828"
                                     HorizontalOptions="Center"
                                     VerticalOptions="Start">
                                     <Label Text="LIVE" />
-                                </StackLayout>
+                                </VerticalStackLayout>
 
                                 <FlexLayout
                                     Margin="40,60"
@@ -55,6 +55,6 @@
                     </DataTemplate>
                 </BindableLayout.ItemTemplate>
             </FlexLayout>
-        </StackLayout>
+        </VerticalStackLayout>
     </ContentView.Content>
 </ContentView>

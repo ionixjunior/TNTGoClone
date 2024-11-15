@@ -21,7 +21,7 @@ namespace TNTGoClone.Views
 
         private void SelectFirstItem()
         {
-            if (Footer.Children.FirstOrDefault() is StackLayout stackLayout)
+            if (Footer.Children.FirstOrDefault() is VerticalStackLayout stackLayout)
 				ChangeState(stackLayout, "Selected");
 		}
 
@@ -31,7 +31,7 @@ namespace TNTGoClone.Views
 			{
 				var currentPageIndex = _viewModel.Pages.IndexOf(currentItem);
 
-				if (Footer.Children[currentPageIndex] is StackLayout stackLayout)
+				if (Footer.Children[currentPageIndex] is VerticalStackLayout stackLayout)
 					ChangeState(stackLayout, "Selected");
 			}
 
@@ -39,12 +39,12 @@ namespace TNTGoClone.Views
             {
 				var previousPageIndex = _viewModel.Pages.IndexOf(previousItem);
 
-				if (Footer.Children[previousPageIndex] is StackLayout stackLayout)
+				if (Footer.Children[previousPageIndex] is VerticalStackLayout stackLayout)
 					ChangeState(stackLayout, "UnSelected");
 			}
 		}
 
-        private void ChangeState(StackLayout stackLayout, string stateName)
+        private void ChangeState(VerticalStackLayout stackLayout, string stateName)
         {
 			if (stackLayout.Children.FirstOrDefault() is Image icon)
 				VisualStateManager.GoToState(icon, stateName);
@@ -55,7 +55,7 @@ namespace TNTGoClone.Views
 
         void TapGestureRecognizer_Tapped(System.Object sender, System.EventArgs e)
         {
-			if (sender is StackLayout stackLayout)
+			if (sender is VerticalStackLayout stackLayout)
             {
 				var index = Footer.Children.IndexOf(stackLayout);
 			    CarouselView.ScrollTo(index);
