@@ -2,8 +2,7 @@
 <ContentView
     x:Class="TNTGoClone.ContentViews.ExtraContentView"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms">
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
     <ContentView.Content>
         <StackLayout Margin="{OnIdiom Phone='0,100,0,0', Tablet='0'}">
             <FlexLayout
@@ -48,15 +47,15 @@
                     <DataTemplate>
                         <StackLayout>
                             <Grid HeightRequest="{OnIdiom Phone=300, Tablet=500}" HorizontalOptions="Center">
-                                <ffimageloading:CachedImage HeightRequest="{OnIdiom Phone=300, Tablet=500}" Source="{Binding Poster}" />
+                                <Image HeightRequest="{OnIdiom Phone=300, Tablet=500}" Source="{Binding Poster}" />
 
-                                <ffimageloading:CachedImage
+                                <Image
                                     HeightRequest="60"
                                     HorizontalOptions="Start"
                                     Source="content_locked"
                                     VerticalOptions="Start" />
 
-                                <ffimageloading:CachedImage
+                                <Image
                                     Margin="0,10,10,0"
                                     HorizontalOptions="End"
                                     Source="{Binding Channel}"

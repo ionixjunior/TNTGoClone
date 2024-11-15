@@ -2,8 +2,7 @@
 <ContentView
     x:Class="TNTGoClone.ContentViews.LiveContentView"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms">
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
     <ContentView.Content>
         <StackLayout Margin="{OnIdiom Phone='0,100,0,100', Tablet='0'}">
             <BoxView
@@ -25,11 +24,11 @@
                             FlexLayout.Grow="1"
                             HasShadow="True">
                             <Grid>
-                                <ffimageloading:CachedImage Aspect="AspectFill" Source="{Binding Background}" />
+                                <Image Aspect="AspectFill" Source="{Binding Background}" />
 
                                 <BoxView BackgroundColor="Black" Opacity="0.7" />
 
-                                <ffimageloading:CachedImage
+                                <Image
                                     HorizontalOptions="Start"
                                     Source="content_locked"
                                     VerticalOptions="Start" />
@@ -48,8 +47,8 @@
                                     Direction="{OnIdiom Phone=Row,
                                                         Tablet=Column}"
                                     JustifyContent="SpaceBetween">
-                                    <ffimageloading:CachedImage Source="{Binding Logo}" />
-                                    <ffimageloading:CachedImage HeightRequest="80" Source="live_play" />
+                                    <Image Source="{Binding Logo}" />
+                                    <Image HeightRequest="80" Source="live_play" />
                                 </FlexLayout>
                             </Grid>
                         </Frame>
