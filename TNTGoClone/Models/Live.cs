@@ -1,19 +1,19 @@
-﻿using Newtonsoft.Json;
+﻿using System.Text.Json.Serialization;
 
 namespace TNTGoClone.Models
 {
     public class Live
     {
-        [JsonProperty("id")]
+        [JsonPropertyName("id")]
         public int Id { get; set; }
 
-        [JsonProperty("logo")]
+        [JsonPropertyName("logo")]
         public string Logo { get; set; }
 
-        [JsonProperty("background")]
+        [JsonPropertyName("background")]
         public string Background { get; set; }
 
-        [JsonProperty("is_locked")]
+        [JsonPropertyName("is_locked")]
         public bool IsLocked { get; set; }
     }
 }

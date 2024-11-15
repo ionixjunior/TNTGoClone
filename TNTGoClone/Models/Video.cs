@@ -1,22 +1,22 @@
-﻿using Newtonsoft.Json;
+﻿using System.Text.Json.Serialization;
 
 namespace TNTGoClone.Models
 {
     public abstract class Video
     {
-        [JsonProperty("id")]
+        [JsonPropertyName("id")]
         public int Id { get; set; }
 
-        [JsonProperty("title")]
+        [JsonPropertyName("title")]
         public string Title { get; set; }
 
-        [JsonProperty("poster")]
+        [JsonPropertyName("poster")]
         public string Poster { get; set; }
 
-        [JsonProperty("channel")]
+        [JsonPropertyName("channel")]
         public string Channel { get; set; }
 
-        [JsonProperty("is_locked")]
+        [JsonPropertyName("is_locked")]
         public bool IsLocked { get; set; }
     }
 }
