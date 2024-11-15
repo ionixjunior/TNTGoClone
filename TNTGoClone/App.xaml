@@ -8,11 +8,10 @@
     mc:Ignorable="d">
     <Application.Resources>
         <ResourceDictionary>
-            <OnPlatform
-                x:Key="FontRegular"
-                x:TypeArguments="x:String"
-                Android="Fonts/RobotoCondensed-Regular.ttf#RobotoCondensed"
-                iOS="RobotoCondensed-Regular" />
+            <OnPlatform x:Key="FontRegular" x:TypeArguments="x:String">
+                <On Platform="Android" Value="Fonts/RobotoCondensed-Regular.ttf#RobotoCondensed" />
+                <On Platform="iOS" Value="RobotoCondensed-Regular" />
+            </OnPlatform>
 
             <Style TargetType="Label">
                 <Setter Property="FontFamily" Value="{StaticResource FontRegular}" />
