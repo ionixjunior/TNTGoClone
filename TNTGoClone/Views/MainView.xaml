@@ -34,21 +34,20 @@
                         AbsoluteLayout.LayoutFlags="WidthProportional"
                         BackgroundColor="Black">
 
-                        <FlexLayout AlignItems="Center" FlexLayout.Grow="1">
+                        <HorizontalStackLayout FlexLayout.Grow="1">
                             <Image Source="title_profile" Style="{StaticResource TitleImage}" />
                             <Image Source="title_config" Style="{StaticResource TitleImage}" />
-                        </FlexLayout>
+                        </HorizontalStackLayout>
 
-                        <FlexLayout AlignItems="Center" FlexLayout.Grow="1">
+                        <HorizontalStackLayout FlexLayout.Grow="1">
                             <Image Source="title_logo" Style="{StaticResource TitleImage}" />
-                        </FlexLayout>
+                        </HorizontalStackLayout>
 
-                        <FlexLayout
-                            AlignItems="Center"
-                            FlexLayout.Grow="1"
-                            JustifyContent="End">
+                        <HorizontalStackLayout
+                            HorizontalOptions="End"
+                            FlexLayout.Grow="1">
                             <Image Source="title_search" Style="{StaticResource TitleImage}" />
-                        </FlexLayout>
+                        </HorizontalStackLayout>
                     </FlexLayout>
                 </OnIdiom.Phone>
 
