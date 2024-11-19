@@ -13,13 +13,4 @@
     <PackageReference Include="refit" Version="8.0.0" />
     <PackageReference Include="Microsoft.Maui.Controls" Version="9.0.0" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Views\" />
-    <Folder Include="Models\" />
-    <Folder Include="Interfaces\" />
-    <Folder Include="Services\" />
-    <Folder Include="ViewModels\" />
-    <Folder Include="ContentViews\" />
-    <Folder Include="Templates\" />
-  </ItemGroup>
 </Project>
