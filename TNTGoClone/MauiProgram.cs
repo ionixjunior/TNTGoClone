@@ -6,7 +6,11 @@ public static class MauiProgram
 	{
 		var builder = MauiApp.CreateBuilder();
 		builder
-			.UseMauiApp<App>();
+			.UseMauiApp<App>()
+			.ConfigureFonts(fonts =>
+			{
+				fonts.AddFont("RobotoCondensed-Regular.ttf", "RobotoCondensedRegular");
+			});
 
 		return builder.Build();
 	}
