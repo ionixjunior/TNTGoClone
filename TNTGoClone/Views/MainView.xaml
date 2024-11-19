@@ -4,6 +4,9 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:templates="clr-namespace:TNTGoClone.Templates"
+    xmlns:vm="clr-namespace:TNTGoClone.ViewModels"
+    xmlns:models="clr-namespace:TNTGoClone.Models"
+    x:DataType="vm:MainViewModel"
     BackgroundColor="#282828">
 
     <ContentPage.Resources>
@@ -84,7 +87,7 @@
                 JustifyContent="Center">
 
                 <BindableLayout.ItemTemplate>
-                    <DataTemplate>
+                    <DataTemplate x:DataType="models:AppPage">
                         <VerticalStackLayout Padding="24,0">
                             <VerticalStackLayout.GestureRecognizers>
                                 <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
